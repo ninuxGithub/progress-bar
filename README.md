@@ -1,8 +1,8 @@
 ## 文件上传进度条效果图：
-上传：
-![image](https://github.com/ninuxGithub/progress-bar/blob/master/demo.png)
+上传：   
+![image](https://github.com/ninuxGithub/progress-bar/blob/master/demo.png)   
 下载：
-![image](https://github.com/ninuxGithub/progress-bar/blob/master/down.png)
+![image](https://github.com/ninuxGithub/progress-bar/blob/master/down.png)   
 
 插件现在地址：http://www.ncmem.com/products/down2/index.html
 
