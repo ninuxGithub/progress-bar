@@ -5,6 +5,7 @@
 ![image](https://github.com/ninuxGithub/progress-bar/blob/master/down.png)   
 
 插件现在地址：http://www.ncmem.com/products/down2/index.html
+http://www.cnblogs.com/xproer/archive/2011/03/26/1996322.html
 
 
 ## spring-mvc（积累）
