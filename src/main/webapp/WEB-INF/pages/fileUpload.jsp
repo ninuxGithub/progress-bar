@@ -86,11 +86,8 @@
 		xhr.send(form);
 	}
 	function progressFunction(evt) {
-
 		var progressBar = document.getElementById("progressBar");
-
 		var percentageDiv = document.getElementById("percentage");
-
 		if (evt.lengthComputable) {
 			progressBar.max = evt.total;
 			progressBar.value = evt.loaded;

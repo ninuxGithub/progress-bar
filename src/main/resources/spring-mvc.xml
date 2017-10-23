@@ -48,6 +48,13 @@
 			</list>
 		</property>
 	</bean>
+	
+	<!-- 开启注解 -->  
+    <mvc:annotation-driven />  
+    <!-- 不拦截静态资源 -->  
+    <mvc:default-servlet-handler /> 
+	<!-- 静态文件访问 -->
+	<mvc:resources location="/js/**" mapping="/js/"/>
 
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
