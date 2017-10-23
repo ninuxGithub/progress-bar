@@ -32,10 +32,12 @@
     	    {
     	    	/*其他域名以及ip会报错：域名未授权, 服务器不可以跨域下载其他的文件*/
     	        //downMgr.down_file("downPanel", "http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23-windows-x86.zip"); 
-    	        //localhost 可以
-    	    	downMgr.down_file("downPanel", "http://localhost/downloadFile?fileName=apache-maven-3.5.0-bin.zip"/*, "自定义文件名称.exe"*/); //
+    	        
+    	    	//下载的url必选是完整的url地址
+    	    	//localhost 可以
+    	    	downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=apache-maven-3.5.0-bin.zip", "apache-maven-3.5.0.zip"); //
     	        //127.0.0.1 可以
-    	        downMgr.down_file("downPanel", "http://127.0.0.1/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
+    	        downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
     		});
 
     	});

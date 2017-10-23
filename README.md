@@ -1,4 +1,5 @@
 ## 文件上传进度条效果图：
+下载可以参考页面：http://localhost:8080/progress-bar/singleIndex       
 上传：   
 ![image](https://github.com/ninuxGithub/progress-bar/blob/master/demo.png)   
 下载：
