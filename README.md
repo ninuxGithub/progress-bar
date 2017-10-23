@@ -7,7 +7,8 @@
 ![image](https://github.com/ninuxGithub/progress-bar/blob/master/down.png)      
 
 #### tips
-插件现在地址：http://www.ncmem.com/products/down2/index.html
+插件下载地址：http://www.ncmem.com/products/down2/index.html
+浏览器安装一个插件：
 http://www.cnblogs.com/xproer/archive/2011/03/26/1996322.html
 
 
