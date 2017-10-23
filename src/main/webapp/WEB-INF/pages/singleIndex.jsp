@@ -8,7 +8,8 @@
 <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
  <title>down2-单文件演示</title>
     <link href="js/down.css" type="text/css" rel="Stylesheet"/>
-    <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script>
+    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
+<!--     <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
     <script type="text/javascript" src="js/down-single.js" charset="utf-8"></script>
     <script language="javascript" type="text/javascript">
         var downMgr = new DownloaderMgr();
@@ -29,8 +30,12 @@
 
     	    $("#btnDownUrl").click(function ()
     	    {
-    	        downMgr.down_file("downPanel", "http://localhost/downloadFile?fileName=apache-maven-3.5.0-bin.zip"/*, "自定义文件名称.exe"*/); //
-//     	        downMgr.down_file("downPanel", "http://localhost/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
+    	    	/*其他域名以及ip会报错：域名未授权, 服务器不可以跨域下载其他的文件*/
+    	        //downMgr.down_file("downPanel", "http://mirror.bit.edu.cn/apache/tomcat/tomcat-8/v8.5.23/bin/apache-tomcat-8.5.23-windows-x86.zip"); 
+    	        //localhost 可以
+    	    	downMgr.down_file("downPanel", "http://localhost/downloadFile?fileName=apache-maven-3.5.0-bin.zip"/*, "自定义文件名称.exe"*/); //
+    	        //127.0.0.1 可以
+    	        downMgr.down_file("downPanel", "http://127.0.0.1/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
     		});
 
     	});
