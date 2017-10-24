@@ -52,17 +52,12 @@
 				<div class="panel-heading">
 					<a href="${pageContext.request.contextPath}/downloadFile?fileName=22161407.jpg">图片下载</a><br>
 					<a href="${pageContext.request.contextPath}/downloadFile?fileName=apache-maven-3.5.0-bin.zip">apache-maven-3.5.0-bin.zip下载</a><br/>
-					
-					
-					
-					<br>
-					<br>
 					<br>
 					<br>
 					<a href="${pageContext.request.contextPath}/singleIndex">singleIndex</a><br/>
-					
-					
-					
+					<br>
+					<br>
+					<a href="${pageContext.request.contextPath}/fileUpload">fileUpload</a><br/>
 				</div>
 			</div>
 		</div>
