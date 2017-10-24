@@ -17,3 +17,8 @@ http://www.cnblogs.com/xproer/archive/2011/03/26/1996322.html
 ## spring-mvc（积累）
 	同时这也是采用xml配置的spring-mvc项目，如果需要可以采用这个模板进行springmvc项目的搭建
 	
+	
+	
+## update
+	升级spring版本4.1.6.RELEASE
+	

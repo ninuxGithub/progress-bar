@@ -8,9 +8,8 @@
 <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
  <title>down2-单文件演示</title>
     <link href="js/down.css" type="text/css" rel="Stylesheet"/>
-    <script type="text/javascript" src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
-<!--     <script type="text/javascript" src="js/jquery-1.3.2.min.js"></script> -->
-    <script type="text/javascript" src="js/down-single.js" charset="utf-8"></script>
+    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="js/down-single-update.js" charset="utf-8"></script>
     <script language="javascript" type="text/javascript">
         var downMgr = new DownloaderMgr();
         //下载事件回调
@@ -35,7 +34,7 @@
     	        
     	    	//下载的url必选是完整的url地址
     	    	//localhost 可以
-    	    	downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=apache-maven-3.5.0-bin.zip", "apache-maven-3.5.0.zip"); //
+//     	    	downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=apache-maven-3.5.0-bin.zip", "apache-maven-3.5.0.zip"); //
     	        //127.0.0.1 可以
     	        downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
     		});

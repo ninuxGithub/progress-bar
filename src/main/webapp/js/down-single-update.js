@@ -1,23 +1,24 @@
 ﻿/*
-	版权所有 2009-2015 荆门泽优软件有限公司
-	保留所有权利
-	官方网站：http://www.ncmem.com/
-	产品首页：http://www.ncmem.com/webplug/http-uploader5/index.asp
-	产品介绍：http://www.cnblogs.com/xproer/archive/2012/05/29/2523757.html
-	开发文档-ASP：http://www.cnblogs.com/xproer/archive/2012/02/17/2355458.html
-	开发文档-PHP：http://www.cnblogs.com/xproer/archive/2012/02/17/2355467.html
-	开发文档-JSP：http://www.cnblogs.com/xproer/archive/2012/02/17/2355462.html
-	开发文档-ASP.NET：http://www.cnblogs.com/xproer/archive/2012/02/17/2355469.html
-	升级日志：http://www.cnblogs.com/xproer/archive/2012/02/17/2355449.html
-	文档下载：http://yunpan.cn/lk/sVRrBEVQ7w5cw
-	问题反馈：http://www.ncmem.com/bbs/showforum-19.aspx
-	VC运行库：http://www.microsoft.com/download/en/details.aspx?displaylang=en&id=29
-	联系信箱：1085617561@qq.com
-	联系QQ：1085617561
-    更新记录：
-		2015-11-05 创建
-        2015-08-01 优化
-*/
+ * @author linuxGithub update the original JS script
+ * 
+ * Licensed to the Apache Software Foundation (ASF) under one or more
+ * contributor license agreements.  See the NOTICE file distributed with
+ * this work for additional information regarding copyright ownership.
+ * The ASF licenses this file to You under the Apache License, Version 2.0
+ * (the "License"); you may not use this file except in compliance with
+ * the License.  You may obtain a copy of the License at
+ * 
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ * 
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ *
+ */
+
+
 
 function DownloaderMgr()
 {
@@ -26,17 +27,12 @@ function DownloaderMgr()
 		  "Folder"		: "C:\\Users\\shenzm\\Desktop\\down\\"
 		, "Debug"		: false//调试模式
 		, "LogFile"		: "C:\\Users\\shenzm\\Desktop\\down\\log.txt"//日志文件路径。
-		, "Company"		: "荆门泽优软件有限公司"
-		, "Version"		: "1,2,56,31650"
+		, "Company"		: "LinuxGithub"
+		, "Version"		: "1.1.0"
 		, "License"		: ""//
 		, "Cookie"		: ""//
 		, "ThreadCount"	: 1//并发数
 		, "FilePart"	: 1048576//文件块大小，更新进度时使用，计算器：http://www.beesky.com/newsite/bit_byte.htm
-		//配置对应的jsp页面地址
-        , "UrlCreate"   : "http://localhost:8080/progress-bar/db/d_create.jsp"
-        , "UrlDel"      : "http://localhost:8080/progress-bar/db/d_del.jsp"
-        , "UrlList"     : "http://localhost:8080/progress-bar/db/d_list.jsp"
-        , "UrlUpdate"   : "http://localhost:8080/progress-bar/db/d_update.jsp"
         //x86
 		, "ClsidDown"	: "E94D2BA0-37F4-4978-B9B9-A4F548300E48"
 		, "ClsidPart"	: "6528602B-7DF7-445A-8BA0-F6F996472569"
@@ -576,76 +572,7 @@ function Downloader(fileLoc, mgr)
         this.browser.openPath(this.fileSvr);
     };
 
-    //在出错，停止中调用
-    this.svr_update = function ()
-    {
-        if (this.fileSvr.idSvr == 0) return;
-
-        var param = jQuery.extend({}, this.fields, this.fileSvr, { time: new Date().getTime() });
-        //TODO
-        console.dir('debug UrlUpdate')
-        
-        $.ajax({
-            type: "GET"
-            , dataType: 'jsonp'
-            , jsonp: "callback" //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
-            , url: _this.Config["UrlUpdate"]
-            , data: param
-            , success: function (msg) { }
-            , error: function (req, txt, err) { alert("更新下载信息失败！" + req.responseText); }
-            , complete: function (req, sta) { req = null; }
-        });
-    };
-
-    //在服务端创建一个数据，用于记录下载信息，一般在HttpDownloader_BeginDown中调用
-    this.svr_create = function ()
-    {
-        //已记录将不再记录
-        if (this.fileSvr.idSvr) return;
-        var param = jQuery.extend({}, this.fields, { file: encodeURIComponent(JSON.stringify(this.fileSvr)), time: new Date().getTime() });
-        
-        //TODO
-        console.dir('debug UrlCreate')
-        
-        $.ajax({
-            type: "GET"
-            , dataType: 'jsonp'
-            , jsonp: "callback" //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
-            , url: _this.Config["UrlCreate"]
-            , data: param
-            , success: function (msg)
-            {
-                if (msg.value == null) return;
-                var json = JSON.parse(decodeURIComponent(msg.value));
-                jQuery.extend(true, _this.fileSvr, json);
-                //if (_this.isComplete()) { _this.SvrDelete(); }
-            }
-            , error: function (req, txt, err) { alert("创建信息失败！" + req.responseText); }
-            , complete: function (req, sta) { req = null; }
-        });
-    };
-
     this.isComplete = function () { return this.State == HttpDownloaderState.Complete; };
-    //一般在HttpDownloader_Complete中调用
-    this.svr_delete = function ()
-    {
-        var param = jQuery.extend({}, this.fields, { fid: this.fileSvr.idSvr, time: new Date().getTime() });
-        //TODO
-        console.dir('debug UrlDel')
-        $.ajax({
-            type: "GET"
-            , dataType: 'jsonp'
-            , jsonp: "callback" //自定义的jsonp回调函数名称，默认为jQuery自动生成的随机函数名
-            , url: _this.Config["UrlDel"]
-            , data: param
-            , success: function (json)
-            {
-                //var res = eval(msg);
-            }
-            , error: function (req, txt, err) { alert("删除数据错误！" + req.responseText); }
-            , complete: function (req, sta) { req = null; }
-        });
-    };
 
     this.down_complete = function ()
     {
@@ -656,7 +583,8 @@ function Downloader(fileLoc, mgr)
         this.ui.percent.text("(100%)");
         this.ui.msg.text("下载完成");
         this.State = HttpDownloaderState.Complete;
-        this.svr_delete();
+        //注释了删除
+        //this.svr_delete();
     };
 
     this.down_recv_size = function (json)
