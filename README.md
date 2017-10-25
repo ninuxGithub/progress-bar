@@ -1,6 +1,11 @@
 ## 文件上传进度条效果图：
-上传可以参考：http://localhost:8080/progress-bar/fileUpload     
-![image](https://github.com/ninuxGithub/progress-bar/blob/master/demo.png)      
+1.上传可以参考：http://localhost:8080/progress-bar/fileUpload     
+![image](https://github.com/ninuxGithub/progress-bar/blob/master/demo.png)   
+
+
+2.webUpload文件上传：http://localhost:8080/progress-bar/examples/image-upload/index.html   
+
+3.webUpload文件上传：http://localhost:8080/progress-bar/webuploader        
 
 
 下载可以参考页面：http://localhost:8080/progress-bar/singleIndex       
