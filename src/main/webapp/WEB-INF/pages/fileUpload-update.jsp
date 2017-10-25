@@ -12,34 +12,44 @@
 		$('#myModal').show();
 		$('#message').html("文件正在上传，请等待....");
 		var fileObj = document.getElementById("file").files[0]; // js 获取文件对象
-		console.dir(fileObj)
 		if(fileObj == null || fileObj == 'undefined' || fileObj == undefined){
 			$('#message').html("上传文件为空!");
 			return;
 		}
-		var FileController = "progress"; // 接收上传文件的后台地址 
-		// FormData 对象---进行无刷新上传
-		var form = new FormData();
+		var uploadUrl = "progress"; // 接收上传文件的后台地址 
+		var form = new FormData();// FormData 对象---进行无刷新上传
 		form.append("author", "linuxGithub"); // 可以增加表单数据
 		form.append("file", fileObj); // 文件对象
 		console.dir(fileObj)
 		var xhr = new XMLHttpRequest();// XMLHttpRequest 对象
-		xhr.open("post", FileController, true);
-		xhr.onload = function() {
-			$('#message').html("上传完成!")
-		};
-		//监听progress事件
-		xhr.upload.addEventListener("progress", progressFunction, false);
-		xhr.send(form);
-	}
-	function progressFunction(evt) {
-		var progressBar = document.getElementById("progressBar");
-		var percentageDiv = document.getElementById("percentage");
-		if (evt.lengthComputable) {
-			progressBar.max = evt.total;
-			progressBar.value = evt.loaded;
-			percentageDiv.innerHTML = Math.round(evt.loaded / evt.total * 100) + "%";
-		}
+		xhr.open("post", uploadUrl, true);
+        xhr.addEventListener('beforeSend', function () {// 上传前初始化,设置
+        	console.dir('beforeSend')
+        });
+        xhr.addEventListener("load", function(evt){//请求完成后执行的操作
+            console.dir(evt.srcElement.responseText)//消息来自evt.srcElement对象，设置返回值
+            if(evt.srcElement.responseText == 1){
+				$('#message').html("上传完成!")
+            }else{
+				$('#message').html("上传失败!")
+            }
+        }, false);
+		xhr.upload.addEventListener("progress", function(evt){//监听progress事件
+			var progressBar = document.getElementById("progressBar");
+			var percentageDiv = document.getElementById("percentage");
+			if (evt.lengthComputable) {
+				progressBar.max = evt.total;
+				progressBar.value = evt.loaded;
+				percentageDiv.innerHTML = Math.round(evt.loaded / evt.total * 100) + "%";
+			}
+		}, false);
+        xhr.addEventListener("error", function(evt){//请求error
+        	$('#message').html("上传失败!")
+        }, false);
+        xhr.addEventListener("abort", function(evt){//请求中断
+        	$('#message').html("上传失败!")
+        }, false);
+		xhr.send(form);//发送请求
 	}
 </script>
 </head>
