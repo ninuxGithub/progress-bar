@@ -23,7 +23,7 @@ public class DownloadController {
 	private static final Logger logger  = LoggerFactory.getLogger(DownloadController.class);
 	
 	
-	private static final String riskReportLocation = "E:\\dev\\workspace-sts-3.9.0.RELEASE\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\progress-bar\\upload";
+	private static final String riskReportLocation = "C:\\Users\\shenzm\\Desktop\\upload";
 
 	@RequestMapping(value="/singleIndex", method = RequestMethod.GET)
 	public String singleIndex() {

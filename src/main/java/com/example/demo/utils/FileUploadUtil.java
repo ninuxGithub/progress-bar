@@ -9,7 +9,8 @@ import org.springframework.web.multipart.MultipartFile;
 public class FileUploadUtil {
 	public static Boolean uploadFile(HttpServletRequest request, MultipartFile file) {
 		System.out.println("开始保存上传的文件：");
-		String path = request.getSession().getServletContext().getRealPath("upload");
+		//String path = request.getSession().getServletContext().getRealPath("upload");
+		String path = "C:\\Users\\shenzm\\Desktop\\upload";
 		String fileName = file.getOriginalFilename();
 		System.out.println("文件的保存路径："+path);
 		File targetFile = new File(path, fileName);

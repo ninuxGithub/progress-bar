@@ -54,6 +54,10 @@ public class UploadController {
 		System.out.println("fileUpload");
 		return "fileUpload";
 	}
+	@RequestMapping(value = "/fileUpload-update", method = RequestMethod.GET)
+	public String fileUploadPageUpdate() {
+		return "fileUpload-update";
+	}
 
 	@RequestMapping(value = { "/", "/index" }, method = RequestMethod.GET)
 	public String index() {

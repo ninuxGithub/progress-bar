@@ -8,7 +8,7 @@
 <link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
  <title>down2-单文件演示</title>
     <link href="js/down.css" type="text/css" rel="Stylesheet"/>
-    <script type="text/javascript" src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/down-single-update.js" charset="utf-8"></script>
     <script language="javascript" type="text/javascript">
         var downMgr = new DownloaderMgr();
