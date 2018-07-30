@@ -16,8 +16,8 @@
 			expression="org.springframework.stereotype.Service" />
 	</context:component-scan>
 
-	<bean
-		class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter">
+<!-- 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"> -->
+	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
 		<!-- 注册JASON转换器 -->
 		<property name="messageConverters">
 			<list>

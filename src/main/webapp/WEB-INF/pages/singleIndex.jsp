@@ -6,7 +6,6 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Single Index</title>
 	<link href="https://cdn.bootcss.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
- 	<title>down2-单文件演示</title>
     <link href="js/down.css" type="text/css" rel="Stylesheet"/>
     <script type="text/javascript" src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script type="text/javascript" src="js/down-single-update.js" charset="utf-8"></script>
@@ -36,7 +35,7 @@
     	    	//localhost 可以
 //     	    	downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=apache-maven-3.5.0-bin.zip", "apache-maven-3.5.0.zip"); //
     	        //127.0.0.1 可以
-    	        downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=22161407.jpg"/*, "自定义文件名称.exe"*/); //
+    	        downMgr.down_file("downPanel", "http://localhost:8080/progress-bar/downloadFile?fileName=test.rar"/*, "自定义文件名称.exe"*/); //
     		});
 
     	});
